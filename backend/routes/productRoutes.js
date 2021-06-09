@@ -2,11 +2,11 @@ import express from "express";
 const router = express.Router();
 import {
   getProducts,
-  getProductsById,
+  getProductById,
 } from "../controllers/productController.js";
 
 router.route("/").get(getProducts);
 
-router.route("/:id").get(getProductsById);
+router.route("/:id").get(getProductById);
 
 export default router;
