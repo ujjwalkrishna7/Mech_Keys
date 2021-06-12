@@ -9,7 +9,7 @@ const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
 
-  if (!shippingAddress) {
+  if (!shippingAddress.address) {
     history.push("/shipping");
   }
 
@@ -36,12 +36,21 @@ const PaymentScreen = ({ history }) => {
               label="PayPal or Credit Card"
               id="PayPal"
               name="paymentMethod"
-              value="Paypal"
+              value="PayPal"
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
+            {/* <Form.Check
+              type='radio'
+              label='Stripe'
+              id='Stripe'
+              name='paymentMethod'
+              value='Stripe'
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            ></Form.Check> */}
           </Col>
         </Form.Group>
+
         <Button type="submit" variant="primary">
           Continue
         </Button>
