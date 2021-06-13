@@ -20,6 +20,7 @@ const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id;
 
   const [sdkReady, setSdkReady] = useState(false);
+  const [cryptoUrl, setCryptoUrl] = useState("");
 
   const dispatch = useDispatch();
 
@@ -63,15 +64,24 @@ const OrderScreen = ({ match, history }) => {
       document.body.appendChild(script);
     };
 
+    const coinbase = async () => {
+      const data = await axios.get(`/api/orders/${orderId}/createcharge`);
+      setCryptoUrl(data.data.hosted_url);
+    };
+
     if (!order || successPay || successDeliver || order._id !== orderId) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
       dispatch(getOrderDetails(orderId));
     } else if (!order.isPaid) {
-      if (!window.paypal) {
-        addPayPalScript();
-      } else {
-        setSdkReady(true);
+      if (order.paymentMethod === "PayPal") {
+        if (!window.paypal) {
+          addPayPalScript();
+        } else {
+          setSdkReady(true);
+        }
+      } else if (order.paymentMethod === "Crypto") {
+        coinbase();
       }
     }
   }, [dispatch, orderId, successPay, successDeliver, order, history, userInfo]);
@@ -129,6 +139,21 @@ const OrderScreen = ({ match, history }) => {
                 <Message variant="success">Paid on {order.paidAt}</Message>
               ) : (
                 <Message variant="danger">Not Paid</Message>
+              )}
+              {order.cryptoPayStatus === "notPaid" ? (
+                <Message variant="danger">
+                  Crypto Payment Not Yet Initiated
+                </Message>
+              ) : order.cryptoPayStatus === "pending" ? (
+                <Message variant="warning">
+                  Paid, but transaction is still pending on the blockchain
+                </Message>
+              ) : order.cryptoPayStatus === "confirmed" ? (
+                <Message variant="success">Crypto Payment Confirmed</Message>
+              ) : (
+                <Message variant="danger">
+                  Crypto Payment Not Yet Initiated
+                </Message>
               )}
             </ListGroup.Item>
 
@@ -195,7 +220,7 @@ const OrderScreen = ({ match, history }) => {
                   <Col>${order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              {!order.isPaid && (
+              {!order.isPaid && order.paymentMethod === "PayPal" && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
@@ -206,6 +231,15 @@ const OrderScreen = ({ match, history }) => {
                       onSuccess={successPaymentHandler}
                     />
                   )}
+                </ListGroup.Item>
+              )}
+              {!order.isPaid && order.paymentMethod === "Crypto" && (
+                <ListGroup.Item>
+                  <a href={cryptoUrl} target="popup">
+                    <Button type="button" className="btn btn-block">
+                      Pay with Crypto
+                    </Button>
+                  </a>
                 </ListGroup.Item>
               )}
               {loadingDeliver && <Loader />}
