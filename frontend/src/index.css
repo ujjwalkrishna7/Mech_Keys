@@ -1,3 +1,25 @@
+:root {
+  --text-color: #fff;
+  --text-sec-color: #999;
+  --curve: 40;
+  --pri-color: #131417;
+  --sec-color: #1f2229;
+  --ter-color: black;
+  --black: #09090c;
+  --grey: #a4b2bc;
+  --white: #fff;
+  --background: rgba(137, 171, 245, 0.37);
+}
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}
 main {
   min-height: 90vh;
 }
@@ -20,7 +42,90 @@ h2 {
   margin: 0.1rem;
 }
 
+/* Color Setting */
+
+body {
+  background-color: var(--pri-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-color);
+}
+.carousel {
+  background-color: var(--sec-color) !important;
+  color: var(--text-color) !important;
+}
+.card {
+  background-color: var(--sec-color) !important;
+  color: var(--text-sec-color) !important;
+}
+.form {
+  background-color: var(--sec-color) !important;
+  color: var(--text-color) !important;
+}
+.form-control {
+  background-color: var(--ter-color) !important;
+  color: var(--text-color) !important;
+}
+
+.list-group,
+.list-group-item {
+  background-color: var(--pri-color) !important;
+  color: var(--text-color) !important;
+  border-color: var(--sec-color) !important;
+}
+.card-title {
+  background-color: var(--sec-color) !important;
+  color: var(--text-color) !important;
+}
+.navbar {
+  background-color: var(--sec-color) !important;
+  color: var(--text-color) !important;
+}
+.table {
+  background-color: var(--sec-color) !important;
+  color: var(--text-sec-color) !important;
+}
+.table tr:hover {
+  color: var(--text-color) !important;
+}
+
+.btn {
+  background-color: var(--ter-color) !important;
+}
+.btn:hover {
+  background-color: var(--sec-color) !important;
+}
+#link {
+  text-decoration: none;
+  color: var(--text-sec-color) !important;
+}
+#navlink {
+  text-decoration: none;
+  color: var(--text-color) !important;
+}
+
+#link:hover {
+  text-decoration: none;
+  color: var(--text-color) !important;
+}
+
+.page-link {
+  background-color: var(--sec-color);
+  color: var(--text-color);
+}
+.search-button {
+  background-color: rgb(10, 117, 150) !important;
+}
+.search-button:hover {
+  background-color: rgb(4, 58, 75) !important;
+}
+
 /* carousel */
+
 .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {
@@ -32,7 +137,7 @@ h2 {
 }
 
 .carousel-caption h2 {
-  color: #fff;
+  color: var(--text-color);
 }
 
 .carousel img {
@@ -50,4 +155,51 @@ h2 {
   .carousel-caption h2 {
     font-size: 2.5vw;
   }
+}
+
+/* Navbar */
+.navbar {
+  border-radius: 0 0 calc(var(--curve) * 1px) calc(var(--curve) * 1px);
+  margin: 0 4%;
+}
+
+/* Card */
+.procard {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+
+.procard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.2);
+}
+/* searchbox */
+.searchbox {
+  border-radius: 25px;
+}
+.search-button {
+  border-radius: 8px;
+}
+
+/* Navbar Styling */
+.nav-link {
+  position: relative;
+}
+.nav-link:before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: #6649b8;
+  height: 3px;
+  width: 0%;
+  left: auto;
+  bottom: -5px;
+  transition: 0.25s ease;
+}
+
+.nav-link:hover:before {
+  width: 80%;
 }

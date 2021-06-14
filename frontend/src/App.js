@@ -17,11 +17,14 @@ import UserEditScreen from "./screens/UserEditScreen";
 import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
+// import SideBar from "./components/SideBar";
 
 function App() {
   return (
     <Router>
+      {/* <SideBar /> */}
       <Header></Header>
+
       <main className="py-3">
         <Container>
           <Route path="/shipping" component={ShippingScreen} />
