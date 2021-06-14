@@ -9,6 +9,8 @@
   --grey: #a4b2bc;
   --white: #fff;
   --background: rgba(137, 171, 245, 0.37);
+  --alt-color: #4ecf1a;
+  --alt-darker-color: #3d9b18;
 }
 body::-webkit-scrollbar {
   width: 0.25rem;
@@ -18,24 +20,29 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: var(--alt-color);
 }
 main {
   min-height: 90vh;
 }
 
-h3 {
-  padding: 1rem 0;
-}
-
 h1 {
-  font-size: 1.8rem;
-  padding: 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 h2 {
   font-size: 1.4rem;
-  padding: 0.5rem 0;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 0.8rem;
+  font-weight: 300;
 }
 
 .rating span {
@@ -51,8 +58,10 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   color: var(--text-color);
+  font-family: "Poppins", sans-serif !important;
 }
 .carousel {
   background-color: var(--sec-color) !important;
@@ -118,10 +127,16 @@ h3 {
   color: var(--text-color);
 }
 .search-button {
-  background-color: rgb(10, 117, 150) !important;
+  background-color: var(--alt-color) !important;
 }
 .search-button:hover {
-  background-color: rgb(4, 58, 75) !important;
+  background-color: var(--alt-darker-color) !important;
+}
+
+.alert-info {
+  background-color: var(--grey);
+  border: 0;
+  color: var(--black);
 }
 
 /* carousel */
@@ -133,26 +148,39 @@ h3 {
 }
 .carousel-caption {
   position: absolute;
-  top: 0;
-}
-
-.carousel-caption h2 {
+  top: 70%;
+  left: 10%;
   color: var(--text-color);
+  text-align: left;
+}
+.carousel-caption-2 {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  color: var(--text-color);
+  text-align: left;
 }
 
 .carousel img {
-  height: 300px;
-  padding: 30px;
-  margin: 40px;
-  border-radius: 50%;
+  height: 480px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  object-fit: cover;
 }
+
 .carousel a {
   margin: 0 auto;
 }
 @media (max-width: 900px) {
-  .carousel-caption h2 {
+  .carousel-caption {
+    top: 55%;
+
+    font-size: 2.5vw;
+  }
+  .carousel-caption-2 {
+    top: 5%;
+
     font-size: 2.5vw;
   }
 }
@@ -162,10 +190,15 @@ h3 {
   border-radius: 0 0 calc(var(--curve) * 1px) calc(var(--curve) * 1px);
   margin: 0 4%;
 }
+.navbar-brand {
+  font-family: "Orbitron", sans-serif !important;
+  font-size: 1.5rem;
+}
 
 /* Card */
 .procard {
   position: relative;
+
   display: block;
   overflow: hidden;
   text-decoration: none;
@@ -192,7 +225,7 @@ h3 {
   content: "";
   position: absolute;
   display: block;
-  background-color: #6649b8;
+  background-color: var(--alt-color);
   height: 3px;
   width: 0%;
   left: auto;
@@ -202,4 +235,42 @@ h3 {
 
 .nav-link:hover:before {
   width: 80%;
+}
+
+.signin {
+  margin: 0 15%;
+  padding: 2%;
+  border-radius: 20px;
+}
+/* footer */
+.footer {
+  padding: 7% 15%;
+  background-color: #0d0c0f;
+  color: #fff;
+}
+
+/* Footer base */
+#footer_base {
+  padding: 1% 20%;
+  text-align: center;
+  color: #fff;
+  background-color: var(--ter-color);
+}
+.github_icon {
+  color: var(--alt-color);
+  position: relative;
+  top: 5px;
+}
+.github_icon:hover {
+  color: var(--alt-darker-color);
+}
+.base_text {
+  font-size: 0.8 rem;
+  font-weight: 300;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
