@@ -1,4 +1,4 @@
-# Mech_Keys
+# MechKeys
 A Keyboard E-commerce platform where u could buy and sell mechanical Keyboards. Payments can be done with both Cryptocurrency and real cash.
 
 ## Live Web link:
