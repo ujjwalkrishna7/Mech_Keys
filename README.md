@@ -31,12 +31,15 @@ npm install
 ```
 
 ### How to Run the app
+To run both frontend (:3000) & backend (:5000), use:
 
 ```
-# Run frontend (:3000) & backend (:5000)
-npm run dev
 
-# Run backend only
+npm run dev
+```
+
+To run just the backend, use:
+```
 npm run server
 ```
 
