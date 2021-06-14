@@ -34,11 +34,12 @@ const Footer = () => {
         </Container>
       </footer>
       <section id="footer_base">
-        <div class="base_text">
+        <div className="base_text">
           Follow this Project on :{" "}
-          <a href="https://github.com/ujjwalkrishna7/Mech_keyz">
+          <a href="https://github.com/ujjwalkrishna7/Mech_keys">
             <i class="fab fa-github fa-2x github_icon"></i>
           </a>
+          <br />- ujjwalkrishna7
         </div>
       </section>
     </>

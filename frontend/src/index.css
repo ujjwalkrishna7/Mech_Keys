@@ -198,7 +198,6 @@ h4 {
 /* Card */
 .procard {
   position: relative;
-
   display: block;
   overflow: hidden;
   text-decoration: none;
