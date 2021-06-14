@@ -34,7 +34,6 @@ npm install
 To run both frontend (:3000) & backend (:5000), use:
 
 ```
-
 npm run dev
 ```
 
