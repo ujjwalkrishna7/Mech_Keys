@@ -10,6 +10,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import coinbase from "coinbase-commerce-node";
 import Order from "./models/orderModel.js";
+import cors from "cors";
 
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 dotenv.config();
@@ -22,6 +23,18 @@ var Client = coinbase.Client;
 var Webhook = coinbase.Webhook;
 var Charge = coinbase.resources.Charge;
 Client.init(process.env.COINBASE_API_KEY);
+//cors
+app.use(
+  cors({
+    origin: [
+      "https://mech-keys.vercel.app/",
+      "http://mech-keys.vercel.app/",
+      "https://mech-keys-ujjwalkrishna7.vercel.app/",
+      "http://mech-keys-ujjwalkrishna7.vercel.app/",
+      "http://localhost:3001/",
+    ],
+  })
+);
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
