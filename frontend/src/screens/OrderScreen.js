@@ -51,9 +51,10 @@ const OrderScreen = ({ match, history }) => {
     if (!userInfo) {
       history.push("/login");
     }
+    const api = "https://mechkeys-app.onrender.com";
 
     const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get("/api/config/paypal");
+      const { data: clientId } = await axios.get(`${api}/api/config/paypal`);
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
@@ -65,7 +66,7 @@ const OrderScreen = ({ match, history }) => {
     };
 
     const coinbase = async () => {
-      const data = await axios.get(`/api/orders/${orderId}/createcharge`);
+      const data = await axios.get(`${api}/api/orders/${orderId}/createcharge`);
       setCryptoUrl(data.data.hosted_url);
     };
 

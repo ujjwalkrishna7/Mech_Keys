@@ -52,6 +52,8 @@ const ProductEditScreen = ({ match, history }) => {
     }
   }, [dispatch, history, productId, product, successUpdate]);
 
+  const api = "https://mechkeys-app.onrender.com";
+
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -65,7 +67,7 @@ const ProductEditScreen = ({ match, history }) => {
         },
       };
 
-      const { data } = await axios.post("/api/upload", formData, config);
+      const { data } = await axios.post(`${api}/api/upload`, formData, config);
 
       setImage(data);
       setUploading(false);
