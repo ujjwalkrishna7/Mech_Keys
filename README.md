@@ -2,7 +2,7 @@
 A Keyboard E-commerce platform where u could buy and sell mechanical Keyboards. Payments can be done with both Cryptocurrency and real cash.
 
 ## Live Web link:
-https://mech-keyz-app.herokuapp.com
+mech-keys.vercel.app
 
 ## Usage
 
