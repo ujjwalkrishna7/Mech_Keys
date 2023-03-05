@@ -169,7 +169,7 @@ const OrderScreen = ({ match, history }) => {
                       <Row>
                         <Col md={1}>
                           <Image
-                            src={item.image}
+                            src={`https://mechkeys-app.onrender.com${item.image}`}
                             alt={item.name}
                             fluid
                             rounded

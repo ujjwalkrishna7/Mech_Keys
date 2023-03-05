@@ -50,7 +50,7 @@ const CartScreen = ({ match, location, history }) => {
                 <Row>
                   <Col md={2}>
                     <Image
-                      src={item.image}
+                      src={`https://mechkeys-app.onrender.com${item.image}`}
                       alt={item.name}
                       fluid
                       rounded

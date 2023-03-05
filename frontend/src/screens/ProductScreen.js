@@ -79,7 +79,11 @@ const ProductScreen = ({ history, match }) => {
           <Meta title={product.name} />
           <Row>
             <Col md={8}>
-              <Image src={product.image} alt={product.name} fluid />
+              <Image
+                src={`https://mechkeys-app.onrender.com${product.image}`}
+                alt={product.name}
+                fluid
+              />
             </Col>
 
             <Col md={4}>

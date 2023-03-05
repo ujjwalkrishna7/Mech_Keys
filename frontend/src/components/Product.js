@@ -7,7 +7,11 @@ const Product = ({ product }) => {
   return (
     <Card className="my-3 p-3 procard">
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant="top" className="card-image" />
+        <Card.Img
+          src={`https://mechkeys-app.onrender.com${product.image}`}
+          variant="top"
+          className="card-image"
+        />
       </Link>
 
       <Card.Body>
