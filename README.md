@@ -1,8 +1,6 @@
 # MechKeys
-A Keyboard E-commerce platform where u could buy and sell mechanical Keyboards. Payments can be done with both Cryptocurrency and real cash.
+An e-commerce platform for buying and selling products, with complete admin control over orders, users, and product listings. It integrates payments via Paypal API and cryptocurrencies using the Coinbase Commerce API.
 
-## Live Web link:
-mech-keys.vercel.app
 
 ## Usage
 
